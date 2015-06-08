@@ -1,0 +1,23 @@
+doctype html
+html
+    head
+        title placeholderIE
+        script(src="js/jquery.js")
+        script(src="js/plugins.js")
+        script(src="js/placeholderIE.js")
+    body
+        h1 请在ie9及以下浏览器浏览
+        label
+            input(type='text',placeholder='请输入交易号码')
+        label
+            input(type='password',placeholder='请输入交易密码')
+        input(type='button',value="click me", class="cen")
+        script.
+            if (B.ie7 || B.ie8 || B.ie9) { placeHolderIE() };
+            $('.cen').dialog({
+                title: '弹出层暂无样式',
+                content: '<label><input type="text" placeholder="请输入交易号码"></label><label><input type="password" placeholder="请输入交易密码"></label>',
+                afterShow: function(){
+                    if (B.ie7 || B.ie8 || B.ie9) { placeHolderIE() };
+                }
+            })
