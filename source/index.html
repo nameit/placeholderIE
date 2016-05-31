@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <title>placeholderIE</title>
     <script src="js/jquery.js"></script>
     <script src="js/plugins.js"></script>
-    <script src="js/placeholderIE.js"></script>
+    
   </head>
   <body>
     <h1>请在ie9及以下浏览器浏览</h1>
@@ -14,16 +15,11 @@
     <label>
       <input type="password" placeholder="请输入交易密码">
     </label>
-    <input type="button" value="click me" class="cen">
-    <script>
-      if (B.ie7 || B.ie8 || B.ie9) { placeHolderIE() };
-      $('.cen').dialog({
-          title: '弹出层暂无样式',
-          content: '<label><input type="text" placeholder="请输入交易号码"></label><label><input type="password" placeholder="请输入交易密码"></label>',
-          afterShow: function(){
-              if (B.ie7 || B.ie8 || B.ie9) { placeHolderIE() };
-          }
-      })
-    </script>
+    <label>
+      <textarea name="" placeholder="这里输入内容"></textarea>
+    </label>
+    <!--[if lt IE 10]>
+    <script src="js/placeholderIE.js"></script>
+    <![endif]-->
   </body>
 </html>
