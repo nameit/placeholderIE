@@ -1,4 +1,3 @@
-//ie
 function placeHolderIE(){
     var isSupportInput = 'placeholder' in document.createElement('input');
     var isSupportTextarea = 'placeholder' in document.createElement('textarea');
@@ -11,6 +10,7 @@ function placeHolderIE(){
             var inputPadTop = $(this).css('paddingTop');
             var inputHeight = $(this).css('height');
             var inputLineHeight = $(this).css('lineHeight');
+
 
             //去重
             if($(this).next().hasClass('placeTemp')) {

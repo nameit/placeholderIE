@@ -1,10 +1,3 @@
-var isIE = function(ver){
-    var b = document.createElement('b')
-    b.innerHTML = '<!--[if IE ' + ver + ']><i></i><![endif]-->'
-    return b.getElementsByTagName('i').length === 1
-};
-
-
 /**
  * 名称: pin.js
  * 描述: 通过两个对象分别描述定位元素及其定位点，然后将其定位点重合
@@ -36,11 +29,15 @@ $.fn.pin = function (options, fixed) {
             selfX, selfY,
 
             // 定位元素位置
-            left, top;
+            left, top,
+
+            //判断是ie6
+            b = document.createElement('b');
+            b.innerHTML = '<!--[if IE 6]><i></i><![endif]-->';
 
     // 设定目标元素的 position 为绝对定位
     // 若元素的初始 position 不为 absolute，会影响元素的 display、宽高等属性
-    if (this.css('position') !== 'fixed' || isIE(6)) {
+    if (this.css('position') !== 'fixed' || b.getElementsByTagName('i').length === 1) {
         this.css('position', 'absolute');
         isPinFixed = false;
     } else {
@@ -48,7 +45,7 @@ $.fn.pin = function (options, fixed) {
     }
 
     // 修正 ie6 下 absolute 定位不准的 bug
-    if (isIE(6)) {
+    if (b.getElementsByTagName('i').length === 1) {
         this.css('zoom', 1);
         parent.css('zoom', 1);
     }
